@@ -1,0 +1,49 @@
+{
+    "model": {
+        "model_type": "_resnet18",
+        "num_classes": 1000,
+        "pretrained": "../pretrained_models/resnet18-5c106cde.pth",
+        "freeze_feature_extractor": true
+    },
+    "dataset": {
+        "dataset_name": "imagenet-lt",
+        "norm_params": {
+			"mean": [123.675, 116.280, 103.530],
+			"std": [58.395, 57.120, 57.375]
+		},
+        "resampler_type": "None",
+        "aug": true,
+        "data_dir": "./datasets/ImageNet-lt_mine/IR50/",
+        "lmdb_dir": "",
+        "input_size": [64, 64],
+        "npy_style": false,
+        "use_lmdb": false,
+        "num_classes": 1000
+    },
+    "training": {
+        "metric_name": "AUCmu",
+        "loss_type": "AUC_mu_hinge",
+        "epoch_num": 25,
+        "train_batch_size": 512,
+        "test_batch_size": 512,
+        "lr": 2e-3,
+        "stage2_lr": 1e-4,
+        "weight_decay": 1e-4,
+        "stage1_epoch": 20,
+        "two_stage": true,
+        "opt": "Adam",
+        "momentum": 0.9,
+        "seed": "None",
+
+        "loss_params": {
+            "cb_beta": 0.99995
+        },
+        "nesterov": true,
+        "lr_decay_rate": 0.99,
+        "lr_decay_epochs": 1,
+        "metric_params": {
+            "alpha": 0.4,
+            "beta": 0.1
+        }
+    }
+}

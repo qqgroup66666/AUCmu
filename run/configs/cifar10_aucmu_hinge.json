@@ -1,0 +1,47 @@
+{
+    "model": {
+        "model_type": "_resnet18",
+        "num_classes": 10,
+        "pretrained": "../pretrained_models/resnet18-5c106cde.pth",
+        "freeze_feature_extractor": true
+    },
+    "dataset": {
+        "dataset_name": "cifar-10-long-tail",
+        "norm_params": {
+			"mean": [123.675, 116.280, 103.530],
+			"std": [58.395, 57.120, 57.375]
+		},
+        "use_lmdb": true,
+        "resampler_type": "None",
+        "aug": true,
+        "data_dir": "./datasets/cifar-10-lt/200/",
+        "input_size": [ 32, 32 ],
+        "npy_style": true,
+        "class2id": { "0": 0, "1": 1, "2": 2, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9}
+    },
+    "training": {
+        "metric_name": "AUCmu",
+        "loss_type": "AUC_mu_hinge",
+        "epoch_num": 80,
+        "train_batch_size": 128,
+        "test_batch_size": 512,
+        "lr": 1e-3,
+        "stage2_lr": 2e-4,
+        "stage1_epoch": 45,
+        "two_stage": true,
+        "weight_decay": 1e-4,
+        "momentum": 0.9,
+        "seed": "None",  
+
+        "loss_params": {
+            "cb_beta": 0.99995
+        },
+        "nesterov": true,
+        "lr_decay_rate": 0.99,
+        "lr_decay_epochs": 1,
+        "metric_params": {
+            "alpha": 0.4,
+            "beta": 0.1
+        }
+    }
+}

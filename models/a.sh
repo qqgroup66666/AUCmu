@@ -1,0 +1,9 @@
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_2
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_3
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_4
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_5
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_1
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_6
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_7
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_8
+grep "test ACC:" -r /data1/peifeng/Log_pl_1_9
